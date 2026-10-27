@@ -68,6 +68,21 @@ Full manual, view by view: [`docs/MANUAL.md`](docs/MANUAL.md). What changed in e
 - **The Stock+ track knob page** (hold the track's button, pad 2): K1 / K2 = pitch envelope amount and decay, K3 / K4 = pitch LFO rate and depth, Shift = fine control; K5 ring mod (Shift: frequency), K6 pitch follow (Shift: filter type stock / 24 dB / comb), K7 **stretch** 0.25×-4× without changing pitch (Shift: bitcrush), K8 start-point scan (Shift: depth); saved with the project. Its own code runs in the voices' DSP.
 - **Delete a pack** on the device (Packs: Clear + pack twice) and **copy a sample** to another slot, also from another pack (Sample Rec: Duplicate + A, Duplicate + B); not in the S builds.
 
+## Install
+
+**Circuit Remix (now):** use the installer from the [Circuit Remix releases](https://github.com/Ghillermo/CIRCUIT-REMIX/releases):
+
+1. Download the official firmware Circuit Rhythm 2.0.1 (build 5706) from Novation: [circuitrhythm-firmware-5706.syx](https://components.novationmusic.com/api/v2/firmwares/169/file).
+2. Download the installer (`rm_uploader.zip`) from the newest release, unzip it and open `rm_uploader.html` in Chrome or Edge.
+3. Close Novation Components and any DAW or MIDI program (on Windows, only one program can open a MIDI port).
+4. Connect the Circuit Rhythm over USB and switch it on.
+5. Pick the official `.syx` and the version, allow MIDI access, and press **Send**. Do not disconnect the device while it sends.
+6. When the Circuit Rhythm asks for confirmation, press **Play** on it.
+
+**Builds from this repository:** an installer comes with the first release.
+
+**Back to the official firmware:** send "Official" with the same installer, or use Novation Components. If the device does not start: hold **Sample Rec + Samples + Note** while you switch it on (Novation's bootloader mode), then send the official firmware.
+
 ## Repository contents
 
 This repository holds only the project's own work: the build scripts, the Thumb assembler, the patcher, the documentation and each version's manifest (with the SHA-256 of the result).
