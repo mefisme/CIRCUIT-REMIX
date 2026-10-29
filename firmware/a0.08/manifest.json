@@ -1,14 +1,14 @@
 {
   "base": "circuitrhythm-firmware-5706 (DR1.1.5143.5706)",
-  "marker": "A0.04",
-  "image_size": "0x68c20",
-  "free_to_0x70000": "0x73e0",
-  "grown_by": 59056,
-  "stock_bytes_changed": 700,
-  "image_sha256": "f2b457c839d8f42f35e4abddc13dcbe3d7bd40b998f4d988210b7bd1849d57e5",
-  "syx_sha256": "2bf0d830ba54923670a7e9c8c41d958714c4d272bdad4a23c40bb80368d5001d",
-  "crc32": "0x66cfc0a7",
-  "provenance": "ok (59056 B, no 16-byte run of the Tracks image)",
+  "marker": "A0.08",
+  "image_size": "0x6e5cc",
+  "free_to_0x70000": "0x1a34",
+  "grown_by": 82012,
+  "stock_bytes_changed": 751,
+  "image_sha256": "c2fd50195702734b3fb5bb34b7629b74e033b09f01ea7851b8667ee0821ddde6",
+  "syx_sha256": "03eb43258a84f5be5ca2fc90b1c2a9a948301a35385cf5a15f697f3e1122395e",
+  "crc32": "0x2fcfb76b",
+  "provenance": "ok (82012 B, no 16-byte run of the Tracks image)",
   "report": {
     "rhstate": {
       "block": "0x2004f660",
@@ -38,6 +38,7 @@
         "k8tick": 224,
         "stockplus": 218,
         "granpage": 228,
+        "vismet": 232,
         "smpcopy": 202,
         "stereorec": 248
       },
@@ -46,6 +47,7 @@
       "off2": {
         "magic": 0,
         "latdiag": 4,
+        "clkci": 4,
         "startfix": 228,
         "clkprobe": 240,
         "stallprof": 352,
@@ -60,7 +62,10 @@
         "cue": 1736,
         "linein": 1748,
         "slink": 1752,
-        "granmulti": 1756
+        "granmulti": 1756,
+        "synth": 1820,
+        "pagehold": 1828,
+        "trkphoto": 1836
       },
       "labels": {
         "c_rst": "0x806a570",
@@ -234,7 +239,8 @@
         "stepgate": 780,
         "gmmode": 792,
         "linein": 804,
-        "slink": 808
+        "slink": 808,
+        "synth": 812
       },
       "labels": {
         "c_rrt": "0x806b3c0"
@@ -444,6 +450,7 @@
         "load": "0x806c7d2",
         "ledtask": "0x806dad0"
       },
+      "ram": true,
       "labels": {
         "c_tcst": "0x806db90",
         "c_tcblk": "0x806db9e",
@@ -700,6 +707,7 @@
       "fitflag": true,
       "t_spd": "0x80721fc",
       "k3sync": true,
+      "ui": true,
       "labels": {
         "c_spst": "0x80726ec",
         "c_spblk": "0x80726fa",
@@ -749,18 +757,23 @@
         "c_d0up": "0x80731e0"
       },
       "blocks": [
-        "0x80732ac",
-        "0x80732ec",
-        "0x8073308",
-        "0x8074768",
-        "0x8074774",
-        "0x8075068",
-        "0x80757fc",
-        "0x8075808",
-        "0x8075a00",
-        "0x8075a0c",
-        "0x8075cdc",
-        "0x8075ce8"
+        "0x80732f0",
+        "0x8073330",
+        "0x807334c",
+        "0x80747b8",
+        "0x80747c4",
+        "0x8075498",
+        "0x8075c2c",
+        "0x8075c38",
+        "0x80761d0",
+        "0x80761dc",
+        "0x80761e8",
+        "0x80773a4",
+        "0x80779f8",
+        "0x8078154",
+        "0x80788bc",
+        "0x8078b8c",
+        "0x8078b98"
       ],
       "ld": "0x3fe0",
       "ld_words": 19,
@@ -771,15 +784,15 @@
         ],
         [
           "0x3000",
-          1736
+          1740
         ],
         [
           "0x224",
           2
         ],
         [
-          "0x3700",
-          762
+          "0x3b00",
+          1092
         ],
         [
           "0x2600",
@@ -791,11 +804,31 @@
         ],
         [
           "0x2e00",
-          166
+          475
         ],
         [
           "0x224",
           2
+        ],
+        [
+          "0x5c0",
+          2
+        ],
+        [
+          "0x2010",
+          1511
+        ],
+        [
+          "0x2890",
+          538
+        ],
+        [
+          "0x2ab0",
+          625
+        ],
+        [
+          "0x36d0",
+          629
         ],
         [
           "0x3a00",
@@ -817,6 +850,7 @@
       "note": true,
       "stereo": true,
       "multi": true,
+      "sp": true,
       "base": "0x80731e0"
     },
     "granpage": {
@@ -827,57 +861,61 @@
         "stock_btn": "0x806dd0c",
         "srec": "0x806ed08"
       },
-      "tables": "0x8075cf0",
+      "tables": "0x8078ba0",
       "note": true,
       "v2": true,
+      "ui": true,
+      "menu2": true,
+      "env": true,
       "multi": true,
       "labels": {
-        "c_gpst": "0x8075d40",
-        "c_gpblk": "0x8075d4e",
-        "c_gpsum": "0x8075d60",
-        "c_gpb": "0x8075d74",
-        "c_gpfix": "0x8075d9e",
-        "c_gpinit": "0x8075daa",
-        "c_gnblk": "0x8075df2",
-        "c_gnsum": "0x8075e04",
-        "c_gnfix": "0x8075e18",
-        "c_gnb": "0x8075e24",
-        "c_gninit": "0x8075e48",
-        "c_gnram": "0x8075ea0",
-        "c_gnpend": "0x8075eb2",
-        "c_gnslot": "0x8075eca",
-        "c_gnv": "0x8075ef0",
-        "c_gnp": "0x8075f36",
-        "c_gnassign": "0x8075f7a",
-        "c_gndrop": "0x8075fd2",
-        "c_gnw": "0x807600c",
-        "c_gpval": "0x80760a0",
-        "c_gpput": "0x80760cc",
-        "c_gpval1": "0x80760ec",
-        "c_gpput1": "0x807610e",
-        "c_gpbyte": "0x807612c",
-        "c_gpsetb": "0x807613c",
-        "c_gpdirty": "0x8076158",
-        "c_gpw": "0x807616c",
-        "c_gpwg1": "0x8076188",
-        "c_gpnote": "0x8076208",
-        "c_gpwx": "0x807623a",
-        "c_gpmst": "0x8076296",
-        "c_gpmflags": "0x80762a8",
-        "c_gpgran": "0x80762b6",
-        "c_gpmopen": "0x80762dc",
-        "c_gpmact": "0x807631e",
-        "c_gpmact1": "0x8076380",
-        "c_gpmpad": "0x80763f6",
-        "c_gpmrel": "0x807642c",
-        "c_gpsrpad": "0x8076454",
-        "c_gpbtn": "0x8076482",
-        "c_gpknob": "0x8076532",
-        "c_gpxpad": "0x80765cc",
-        "c_gpled": "0x8076602",
-        "c_gpdsp": "0x807662a"
+        "c_gpst": "0x8078bf0",
+        "c_gpblk": "0x8078bfe",
+        "c_gpsum": "0x8078c10",
+        "c_gpb": "0x8078c24",
+        "c_gpfix": "0x8078c4e",
+        "c_gpinit": "0x8078c5a",
+        "c_gnblk": "0x8078ca2",
+        "c_gnsum": "0x8078cb4",
+        "c_gnfix": "0x8078cc8",
+        "c_gnb": "0x8078cd4",
+        "c_gninit": "0x8078cf8",
+        "c_gnram": "0x8078d50",
+        "c_gnpend": "0x8078d62",
+        "c_gnslot": "0x8078d7a",
+        "c_gnv": "0x8078da0",
+        "c_gnp": "0x8078de6",
+        "c_gnassign": "0x8078e2a",
+        "c_gndrop": "0x8078e82",
+        "c_gnw": "0x8078ebc",
+        "c_gpval": "0x8078f50",
+        "c_gpput": "0x8078f7c",
+        "c_gpval1": "0x8078f9c",
+        "c_gpput1": "0x8078fbe",
+        "c_gpbyte": "0x8078fdc",
+        "c_gpsetb": "0x8078fec",
+        "c_gpdirty": "0x8079008",
+        "c_gpw": "0x807901c",
+        "c_gpwg1": "0x8079038",
+        "c_gpnote": "0x80790b8",
+        "c_gpwx": "0x80790ea",
+        "c_gpmst": "0x8079146",
+        "c_gpmflags": "0x8079158",
+        "c_gpgran": "0x8079166",
+        "c_gpmopen": "0x807918c",
+        "c_gpmshut": "0x8079212",
+        "c_gpmact": "0x8079244",
+        "c_gpmact1": "0x80792c2",
+        "c_gpmpad": "0x8079338",
+        "c_gpmrel": "0x8079374",
+        "c_gpsrpad": "0x807939c",
+        "c_gpbtn": "0x80793ca",
+        "c_gpknob": "0x80794a6",
+        "c_gpxpad": "0x8079540",
+        "c_gpled": "0x8079576",
+        "c_gpdsp": "0x807959e"
       },
-      "base": "0x8075cf0"
+      "base": "0x8078ba0"
     },
     "startfix": {
       "state": "0x2004ef44",
@@ -885,254 +923,418 @@
       "kmax": 32,
       "always": null,
       "labels": {
-        "c_sfst": "0x8076ae0",
-        "c_sfmode": "0x8076aee",
-        "c_sforig": "0x8076b3e",
-        "c_sfcb": "0x8076b46"
+        "c_sfst": "0x8079aa0",
+        "c_sfmode": "0x8079aae",
+        "c_sforig": "0x8079afe",
+        "c_sfcb": "0x8079b06"
       },
-      "base": "0x8076ae0"
+      "base": "0x8079aa0"
     },
     "dsprd": {
       "labels": {
-        "c_d16r": "0x8076bb0"
+        "c_d16r": "0x8079b70"
       },
-      "base": "0x8076bb0"
+      "base": "0x8079b70"
     },
     "stereorec": {
-      "prev_led": "0x8076602",
+      "prev_led": "0x8079576",
       "stf": "0x16ee",
       "stq": "0x16ef",
       "labels": {
-        "c_srst": "0x8076bf0",
-        "c_srw0": "0x8076bfe",
-        "c_srr0": "0x8076c14",
-        "c_srrd": "0x8076c26",
-        "c_srjob": "0x8076c34",
-        "c_srproc": "0x8076cd8",
-        "c_srstf": "0x8076da0",
-        "c_srocc": "0x8076dc2",
-        "c_srfun": "0x8076de4",
-        "c_srend": "0x8076e80",
-        "c_srarm": "0x8076ec0",
-        "c_srstop": "0x8076f68",
-        "c_srfstart": "0x8076f98",
-        "c_srfstop": "0x8076fd4",
-        "c_srfsaved": "0x8076ff6",
-        "c_srled": "0x807701c"
+        "c_srst": "0x8079bb0",
+        "c_srw0": "0x8079bbe",
+        "c_srr0": "0x8079bd4",
+        "c_srrd": "0x8079be6",
+        "c_srjob": "0x8079bf4",
+        "c_srproc": "0x8079c98",
+        "c_srstf": "0x8079d60",
+        "c_srocc": "0x8079d82",
+        "c_srfun": "0x8079da4",
+        "c_srend": "0x8079e40",
+        "c_srarm": "0x8079e80",
+        "c_srstop": "0x8079f28",
+        "c_srfstart": "0x8079f58",
+        "c_srfstop": "0x8079f94",
+        "c_srfsaved": "0x8079fb6",
+        "c_srled": "0x8079fdc"
       },
-      "base": "0x8076bf0"
+      "base": "0x8079bb0"
     },
     "sdyield": {
       "block": "0x2004f3f0",
       "after_ms": 2,
       "labels": {
-        "c_sdy": "0x8077070"
+        "c_sdy": "0x807a030"
       },
-      "base": "0x8077070"
+      "base": "0x807a030"
     },
     "stfit": {
       "prev": {
-        "pad": "0x80765cc",
-        "ledtask": "0x807701c"
+        "pad": "0x8079540",
+        "ledtask": "0x8079fdc"
       },
       "block": "0x2004f404",
       "t_spd": "0x80721fc",
       "labels": {
-        "c_sfst": "0x8077120",
-        "c_sfok": "0x8077132",
-        "c_sffit": "0x807714e",
-        "c_sfdiv": "0x8077164",
-        "c_sfv": "0x8077188",
-        "c_sfopt": "0x80771ec",
-        "c_sfeff": "0x807729e",
-        "c_sfoff": "0x80772ca",
-        "c_sfapply": "0x80772ec",
-        "c_sfpad": "0x8077328",
-        "c_sfinv": "0x80773b2",
-        "c_sfled": "0x80773e2"
+        "c_sfst": "0x807a0e0",
+        "c_sfok": "0x807a0f2",
+        "c_sffit": "0x807a10e",
+        "c_sfdiv": "0x807a124",
+        "c_sfv": "0x807a148",
+        "c_sfopt": "0x807a1ac",
+        "c_sfeff": "0x807a25e",
+        "c_sfoff": "0x807a28a",
+        "c_sfapply": "0x807a2ac",
+        "c_sfpad": "0x807a2e8",
+        "c_sfinv": "0x807a372",
+        "c_sfled": "0x807a3a2"
       },
-      "base": "0x8077120"
+      "base": "0x807a0e0"
     },
     "stepgate": {
       "prev": {
         "press": "0x805cb04",
         "rel": "0x805ccf0",
         "mpad": "0x8056f7c",
-        "ledtask": "0x80773e2"
+        "ledtask": "0x807a3a2"
       },
       "block": "0x30c",
       "ram": "0x2004f438",
       "labels": {
-        "c_sgram": "0x80774e0",
-        "c_sgblk": "0x80774f2",
-        "c_sgget": "0x807752c",
-        "c_sgput": "0x8077548",
-        "c_sgstep": "0x807759a",
-        "c_sgsvt": "0x80775b4",
-        "c_sgms": "0x80775d6",
-        "c_sgset": "0x8077658",
-        "c_sghit": "0x8077678",
-        "c_sgpress": "0x8077688",
-        "c_sgrel": "0x8077724",
-        "c_sgheld": "0x8077820",
-        "c_sgmpad": "0x8077838",
-        "c_sgled": "0x80778d4"
+        "c_sgram": "0x807a4a0",
+        "c_sgblk": "0x807a4b2",
+        "c_sgget": "0x807a4ec",
+        "c_sgput": "0x807a508",
+        "c_sgstep": "0x807a55a",
+        "c_sgsvt": "0x807a574",
+        "c_sgms": "0x807a596",
+        "c_sgset": "0x807a618",
+        "c_sghit": "0x807a638",
+        "c_sgpress": "0x807a648",
+        "c_sgrel": "0x807a6e4",
+        "c_sgheld": "0x807a7e0",
+        "c_sgmpad": "0x807a7f8",
+        "c_sgled": "0x807a894"
       },
-      "base": "0x80774e0"
+      "base": "0x807a4a0"
     },
     "dqclear": {
       "prev": {
         "pspad": "0x806d42a"
       },
       "labels": {
-        "c_dcpad": "0x8077980"
+        "c_dcpad": "0x807a940"
       },
-      "base": "0x8077980"
+      "base": "0x807a940"
     },
     "setsave": {
       "prev": {
-        "ledtask": "0x80778d4"
+        "ledtask": "0x807a894"
       },
       "labels": {
-        "c_ssled": "0x8077a00"
+        "c_ssled": "0x807a9c0"
       },
-      "base": "0x8077a00"
+      "base": "0x807a9c0"
     },
     "usbmerge": {
       "prev": {
         "post": "0x806e5aa",
         "pad": "0x806e798",
-        "ledtask": "0x8077a00"
+        "ledtask": "0x807a9c0"
       },
       "labels": {
-        "c_umin": "0x8077a90",
-        "c_umpad": "0x8077af4",
-        "c_umled": "0x8077b34"
+        "c_umin": "0x807aa50",
+        "c_umpad": "0x807aab4",
+        "c_umled": "0x807aaf4"
       },
-      "base": "0x8077a90"
+      "base": "0x807aa50"
     },
     "arpext": {
       "prev": {
         "on": "0x803f5a8",
         "off": "0x803f660",
-        "pad": "0x8077af4",
-        "ledtask": "0x8077b34"
+        "pad": "0x807aab4",
+        "ledtask": "0x807aaf4"
       },
       "labels": {
-        "c_axtrk": "0x8077b90",
-        "c_axon": "0x8077bde",
-        "c_axoff": "0x8077c6e",
-        "c_axpad": "0x8077ccc",
-        "c_axled": "0x8077d0c"
+        "c_axtrk": "0x807ab50",
+        "c_axon": "0x807ab9e",
+        "c_axoff": "0x807ac2e",
+        "c_axpad": "0x807ac8c",
+        "c_axled": "0x807accc"
       },
-      "base": "0x8077b90"
+      "base": "0x807ab50"
     },
     "gmmode": {
       "prev": {
         "on": "0x8031f9c",
         "off": "0x8031fc6",
-        "pad": "0x8077ccc",
+        "pad": "0x807ac8c",
         "knob": "0x805211c",
-        "ledtask": "0x8077d0c"
+        "ledtask": "0x807accc"
       },
       "block": "0x318",
       "labels": {
-        "c_gmblk": "0x8077da0",
-        "c_gmis": "0x8077dda",
-        "c_gmnote": "0x8077dec",
-        "c_gmput": "0x8077e0a",
-        "c_gmram": "0x8077e5e",
-        "c_gmsend": "0x8077e70",
-        "c_gmtxon": "0x8077eb2",
-        "c_gmtxoff": "0x8077eec",
-        "c_gmrx": "0x8077f1e",
-        "c_gmpad": "0x8077f8e",
-        "c_gmknob": "0x8077fbc",
-        "c_gmled": "0x8078040"
+        "c_gmblk": "0x807ad60",
+        "c_gmis": "0x807ad9a",
+        "c_gmnote": "0x807adac",
+        "c_gmput": "0x807adca",
+        "c_gmram": "0x807ae1e",
+        "c_gmsend": "0x807ae30",
+        "c_gmtxon": "0x807ae72",
+        "c_gmtxoff": "0x807aeac",
+        "c_gmrx": "0x807aede",
+        "c_gmpad": "0x807af4e",
+        "c_gmknob": "0x807af7c",
+        "c_gmled": "0x807b000"
       },
-      "base": "0x8077d90"
+      "base": "0x807ad50"
     },
     "qfull": {
       "labels": {
-        "c_qfw": "0x8078090"
+        "c_qfw": "0x807b050"
       },
-      "base": "0x8078090"
+      "base": "0x807b050"
     },
     "autorel": {
       "prev": {
-        "press": "0x8077688",
-        "rel": "0x8077724",
-        "ledtask": "0x8078040"
+        "press": "0x807a648",
+        "rel": "0x807a6e4",
+        "ledtask": "0x807b000"
       },
+      "keep": true,
       "labels": {
-        "c_arram": "0x8078130",
-        "c_arpat": "0x8078142",
-        "c_arstock": "0x8078170",
-        "c_arplay": "0x8078178",
-        "c_arbase": "0x807823a",
-        "c_artake": "0x8078264",
-        "c_arrelease": "0x80782a2",
-        "c_arvel": "0x80782da",
-        "c_arsteps": "0x8078312",
-        "c_arpress": "0x807831e",
-        "c_arrel": "0x8078384",
-        "c_arled": "0x80783ac"
+        "c_arram": "0x807b0f0",
+        "c_arpat": "0x807b102",
+        "c_arstock": "0x807b130",
+        "c_arplay": "0x807b138",
+        "c_arbase": "0x807b1fa",
+        "c_artake": "0x807b224",
+        "c_arrelease": "0x807b262",
+        "c_arvel": "0x807b29a",
+        "c_arsteps": "0x807b2d2",
+        "c_arpress": "0x807b2de",
+        "c_arrel": "0x807b344",
+        "c_arled": "0x807b36c"
       },
-      "base": "0x8078120"
+      "base": "0x807b0e0"
     },
     "cue": {
       "prev": {
         "knob": "0x806adb0",
-        "ledtask": "0x80783ac"
+        "ledtask": "0x807b36c"
       },
       "labels": {
-        "c_curam": "0x8078420",
-        "c_cumuted": "0x8078440",
-        "c_cumute": "0x8078464",
-        "c_cuparam": "0x80784a4",
-        "c_cuknob": "0x807852c",
-        "c_cusend": "0x80785c8",
-        "c_culed": "0x80785ee"
+        "c_curam": "0x807b3d0",
+        "c_cumuted": "0x807b3f0",
+        "c_cumute": "0x807b414",
+        "c_cuparam": "0x807b454",
+        "c_cuknob": "0x807b4dc",
+        "c_cusend": "0x807b578",
+        "c_culed": "0x807b59e"
       },
-      "base": "0x8078420"
+      "base": "0x807b3d0"
     },
     "linein": {
       "prev": {
-        "pad": "0x80763f6",
-        "ledtask": "0x80785ee"
+        "pad": "0x8079338",
+        "ledtask": "0x807b59e"
       },
+      "ui": true,
+      "fx": true,
+      "srcdim": true,
       "labels": {
-        "c_liblk": "0x80786c0",
-        "c_liget": "0x80786f0",
-        "c_liput": "0x8078704",
-        "c_liram": "0x8078724",
-        "c_lipad": "0x8078736",
-        "c_liw": "0x80787be",
-        "c_liwk": "0x80787d0",
-        "c_liled": "0x8078834"
+        "c_liblk": "0x807b670",
+        "c_liget": "0x807b6a0",
+        "c_liput": "0x807b6b4",
+        "c_liram": "0x807b6d4",
+        "c_lipad": "0x807b6e6",
+        "c_liw": "0x807b7a6",
+        "c_liwk": "0x807b7b8",
+        "c_liled": "0x807b83c"
       },
-      "base": "0x80786c0"
+      "base": "0x807b670"
     },
     "slink": {
       "prev": {
-        "param": "0x80784a4",
-        "queue": "0x8078090",
-        "pad": "0x8078736",
-        "ledtask": "0x8078834"
+        "param": "0x807b454",
+        "queue": "0x807b050",
+        "pad": "0x807b6e6",
+        "ledtask": "0x807b83c"
+      },
+      "ui": true,
+      "labels": {
+        "c_slram": "0x807b940",
+        "c_slm": "0x807b952",
+        "c_slblk": "0x807b960",
+        "c_slget": "0x807b990",
+        "c_slput": "0x807b9a6",
+        "c_slp": "0x807b9c4",
+        "c_slroom": "0x807ba1a",
+        "c_slq": "0x807ba88",
+        "c_slpad": "0x807bb1c",
+        "c_slled": "0x807bb6c"
+      },
+      "base": "0x807b940"
+    },
+    "synthpage": {
+      "prev": {
+        "pad": "0x807bb1c",
+        "knob": "0x80794a6",
+        "ledtask": "0x807bb6c",
+        "rel": "0x8079374"
+      },
+      "tables": "0x807bc20",
+      "ui": true,
+      "menu2": true,
+      "env": true,
+      "spall": true,
+      "labels": {
+        "c_syram": "0x807c068",
+        "c_sysum": "0x807c07a",
+        "c_syb": "0x807c08e",
+        "c_syslot": "0x807c0d2",
+        "c_syv": "0x807c0f8",
+        "c_sypend": "0x807c11e",
+        "c_syp": "0x807c14c",
+        "c_syassign": "0x807c172",
+        "c_sypage": "0x807c1c8",
+        "c_sysetpg": "0x807c1ee",
+        "c_sydrop": "0x807c20e",
+        "c_sylidrop": "0x807c23e",
+        "c_syword": "0x807c266",
+        "c_sywr": "0x807c42a",
+        "c_sypad": "0x807c446",
+        "c_sysnd": "0x807c59a",
+        "c_syrel": "0x807c64e",
+        "c_syknob": "0x807c74e",
+        "c_synoff": "0x807c7de",
+        "c_syled": "0x807c802"
+      },
+      "base": "0x807bc20"
+    },
+    "envpage": {
+      "prev": {
+        "knob": "0x807c74e",
+        "ledtask": "0x807c802"
+      },
+      "tables": "0x807cbe0",
+      "block": "0x148",
+      "labels": {
+        "c_evsum": "0x807d14c",
+        "c_evb": "0x807d15e",
+        "c_evon": "0x807d1a6",
+        "c_evget": "0x807d1d0",
+        "c_evset": "0x807d23a",
+        "c_evword": "0x807d2d6",
+        "c_evknob": "0x807d500",
+        "c_evled": "0x807d588"
+      },
+      "base": "0x807cbe0"
+    },
+    "spall": {
+      "prev": {
+        "knob": "0x807d500",
+        "ledtask": "0x807d588"
+      },
+      "tables": "0x807d6e0",
+      "block": "0x15e",
+      "sites": {
+        "dsp": [
+          "0x8072fb8"
+        ],
+        "k8": [
+          "0x8072df4"
+        ],
+        "k3": [
+          "0x8072ee6"
+        ],
+        "reset": [
+          "0x80728e2"
+        ],
+        "copy": [
+          "0x80728c8"
+        ]
       },
       "labels": {
-        "c_slram": "0x8078930",
-        "c_slm": "0x8078942",
-        "c_slblk": "0x8078950",
-        "c_slget": "0x8078980",
-        "c_slput": "0x8078996",
-        "c_slp": "0x80789b4",
-        "c_slroom": "0x8078a0a",
-        "c_slq": "0x8078a78",
-        "c_slpad": "0x8078b0c",
-        "c_slled": "0x8078b5a"
+        "c_wsb": "0x807d904",
+        "c_wsget": "0x807d94e",
+        "c_wsset": "0x807d964",
+        "c_s0snd": "0x807d98c",
+        "c_s0on": "0x807d9a2",
+        "c_s0dsp": "0x807d9d6",
+        "c_s0w": "0x807db6a",
+        "c_s0reset": "0x807dbb2",
+        "c_s0copy": "0x807dbd0",
+        "c_s0knob": "0x807dc00",
+        "c_s0led": "0x807dc8c"
       },
-      "base": "0x8078930"
+      "base": "0x807d6e0"
+    },
+    "vismet": {
+      "slot": "0x2004f748",
+      "count_click": "0x806a8d6",
+      "prev_led": "0x807dc8c",
+      "labels": {
+        "c_vmbeat_stock": "0x807dd10",
+        "c_vmbeat": "0x807dd18",
+        "c_vmclick": "0x807dd96",
+        "c_vmled": "0x807ddec"
+      },
+      "base": "0x807dd10"
+    },
+    "clkci": {
+      "slot": "0x2004ee64",
+      "prev_btn": "0x80793ca",
+      "prev_led": "0x807ddec",
+      "labels": {
+        "c_ckblk": "0x807de70",
+        "c_ckready": "0x807de9a",
+        "c_ckmark": "0x807dec8",
+        "c_ckclick": "0x807def4",
+        "c_ckplay": "0x807df0a",
+        "c_ckbegin": "0x807df54",
+        "c_ckcancel": "0x807dfce",
+        "c_ckabort": "0x807dfe2",
+        "c_ckrelease": "0x807e018",
+        "c_cktick": "0x807e070",
+        "c_ckpulse": "0x807e100",
+        "c_ckbeat": "0x807e194",
+        "c_ckmstart": "0x807e218",
+        "c_ckmstart_x": "0x807e22a",
+        "c_ckmcont": "0x807e232",
+        "c_ckmcont_x": "0x807e244",
+        "c_ckmstop": "0x807e24c",
+        "c_ckmstop_x": "0x807e25e",
+        "c_ckmspp": "0x807e266",
+        "c_ckmspp_x": "0x807e280",
+        "c_cksetmode": "0x807e288",
+        "c_ckheld": "0x807e2be",
+        "c_ckrec": "0x807e2d4",
+        "c_ckplp0": "0x807e2ee",
+        "c_ckpled": "0x807e30a",
+        "c_ckbtn": "0x807e328",
+        "c_ckled": "0x807e3ca"
+      },
+      "base": "0x807de70"
+    },
+    "stepload": {
+      "labels": {
+        "c_stload": "0x807e430"
+      },
+      "base": "0x807e430"
+    },
+    "errled": {
+      "prev": "0x807e3ca",
+      "checks": [
+        "call",
+        "call",
+        "vt"
+      ],
+      "labels": {
+        "c_erled": "0x807e580"
+      },
+      "base": "0x807e580"
     }
   }
 }

@@ -19,7 +19,7 @@ Legal note: the firmware provided by Novation is proprietary; installing it on a
 
 ## Features of this repository
 
-In development for both lines:
+In development for both lines. The count-in, the visual metronome, the faster step load and the error light are part of Circuit Remix since Alpha 0.08.
 
 - **Count-in on the music's clock:** the count follows the Rhythm's own clock or an external MIDI clock. As a slave, it starts on the master's next bar when the master's position is known (MIDI Start or Song Position).
 - **Nothing records during the count,** and the Play button's light stays as stopped until the 1.
@@ -32,11 +32,19 @@ In development for both lines:
 
 How the work is organised (lines, versions, branches, tests): [`docs/DEVELOPMENT.md`](docs/DEVELOPMENT.md).
 
-## Circuit Remix features (Alpha 0.04)
+## Circuit Remix features (Alpha 0.08)
 
 Full manual, view by view: [`docs/MANUAL.md`](docs/MANUAL.md). What changed in each version: [`CHANGELOG.md`](CHANGELOG.md).
 
-> ⚠️ **Alpha 0.04 is experimental:** most of what is new in it has only been checked in emulation.
+> ⚠️ **Alpha 0.08 is experimental:** most of what is new in Alpha 0.04-0.08 has only been checked in emulation.
+
+**New in Alpha 0.08 (experimental):** **the count-in on the music's clock** (contributed by mefisme): the clicks follow the tempo or, as a slave, the external MIDI clock (the first click on the master's bar), the 1 is on time, nothing records during the count; a **visual metronome** (with the click at 0, Clear flashes orange on each beat); Play loads the steps faster; the line input's pad 15 with no FX, dim.
+
+**New in Alpha 0.07 (experimental):** **Stock+ for every sound**: the Stock+ page (menu pad 2) on the granular and the synth too (pitch envelope and LFO, ring, filters, **a waveshaper on K7** with its type on Shift + K7, K8 = an LFO on the grains' position / the FM); the **track's distortion knob** on the granular and the synth too.
+
+**New in Alpha 0.06 (experimental):** the **envelope by play mode** for the synth and the granular (Envelope page, menu pad 5: start, length, slope, → filter); the **line input from the reverb or delay returns** (pad 15) and its gate through the track's filter.
+
+**New in Alpha 0.05 (experimental):** the **synth** (two oscillators with FM, sync, SUB, noise and glide on up to 4 tracks, with its knob page); the **new interface** (a colour per knob page; the track menu with the pages on pads 1-4 and the toggles below; a tap on the selected track's button leaves the menu open, holding shows it until you let go; only the pages of the track's sound; Stock+ K3 / K8 synced halves faster towards the left end; off = the same colour, dim).
 
 **New in Alpha 0.04:** a track menu (hold its button); **granular** on up to 4 tracks, with its knob page, the note, the track's filter and envelope and a stereo spread; the **line input** as the sound of one or two tracks; a **stereo link** of two tracks; **stereo Sample Rec**; a loop de-clicker and short loops at their own length; Stock+ K3 / K8 synced to the tempo; fit to the pattern with stretch; a **cue mode** in the Mixer; fixed length and gate by press in Micro Step; per-step automation release; General MIDI mode; an external keyboard into the arpeggiator; USB merge; playback starts sooner and the clock does not stumble while saving.
 
@@ -96,9 +104,9 @@ This repository holds only the project's own work: the build scripts, the Thumb 
 
 ```bash
 python -m pip install -r tools/requirements.txt
-python tools/patch_official.py PATH/TO/circuitrhythm-firmware-5706.syx --version A0.04
+python tools/patch_official.py PATH/TO/circuitrhythm-firmware-5706.syx --version A0.08
 ```
 
-The tool checks the official firmware's SHA-256, builds the version in `firmware/<version>/` and checks that the result is identical to the published one. `--version A0.04S` builds the version without the features that write to the SD card; `--list` lists the versions; `--all` builds them all. `python tools/verify_builds.py` rebuilds the versions and compares them with their manifests.
+The tool checks the official firmware's SHA-256, builds the version in `firmware/<version>/` and checks that the result is identical to the published one. `--version A0.08S` builds the version without the features that write to the SD card; `--list` lists the versions; `--all` builds them all. `python tools/verify_builds.py` rebuilds the versions and compares them with their manifests.
 
 Circuit Rhythm, Components and Novation are trademarks of Focusrite Audio Engineering Ltd. This project is not affiliated with them.

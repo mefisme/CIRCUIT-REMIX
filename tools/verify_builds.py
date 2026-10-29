@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-BUILDS = {"A0.04": "build_a004", "A0.04S": "build_a004s"}
+BUILDS = {"A0.08": "build_a008", "A0.08S": "build_a008s"}
 
 
 def main():

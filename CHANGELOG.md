@@ -1,5 +1,75 @@
 # CHANGELOG
 
+## Alpha 0.08 (2026-10-29) — experimental
+
+Two new builds: **Alpha 0.08** (marker `A0.08`) and **Alpha 0.08S** (marker `A0.08S`: no project copy, pack delete or sample copy). What's new is **mefisme**'s contribution (pull request 7, their A0.04F / A04FS), brought onto the current line. Everything is in the [manual](docs/MANUAL.md#transporte) ([illustrated](docs/manual/en.html)).
+
+> ⚠️ **Experimental: needs refinement.** The count-in on the clock was tested on the device on Alpha 0.04 (mefisme's A0.04F); on the current line it has only been checked in emulation, like most of Alpha 0.04-0.07. Expect bugs, noises or hangs: for serious playing, stay on **Alpha 0.03** (still in the installer). **Back up the SD card.**
+
+What's new:
+- **The count-in follows the music's clock:** the project's tempo, or the external MIDI clock as a slave. Before, the LED task timed it: clicks 0 to 10 ms late.
+- **The 1 on time:** Play goes through at the start of the count and the clock's start waits until the 1, so Play's work runs during the count.
+- **During the count** nothing records and the Play LED shows stopped; Record flashes red on each click.
+- **Slave:** the first click comes on the master's next bar when its position is known (Start or Song Position).
+- **Visual metronome:** with the click's level at 0 (Tempo / Swing K5), Clear flashes orange on each click and each beat.
+- **Faster step load on Play** (the same result with a quarter of the calls).
+- **Error light:** Clear blinks red if these features cannot run on the firmware they find (it should never show).
+- Shift + Play (the count, then carry on) and Play during the count (cancels it) work as before.
+- **Line input:** on the track menu, pad 15 with the inputs as the source (no FX) shows dim amber; the reverb and delay returns as before.
+
+## Alpha 0.07 (2026-10-28) — experimental
+
+Two new builds: **Alpha 0.07** (marker `A0.07`) and **Alpha 0.07S** (marker `A0.07S`: no project copy, pack delete or sample copy). Everything is in the [manual](docs/MANUAL.md) ([illustrated](docs/manual/en.html)).
+
+> ⚠️ **Experimental: needs refinement.** Stock+ on the granular and the synth has only been checked in emulation, like most of Alpha 0.04-0.06. Expect bugs, noises or hangs: for serious playing, stay on **Alpha 0.03** (still in the installer). **Back up the SD card.**
+
+What's new:
+- **Stock+ for every sound:** the Stock+ page (track menu, pad 2) on **granular** and **synth** tracks too:
+  - the pitch envelope and LFO on each new grain's pitch / the synth's oscillators;
+  - ring mod, pitch follow and the filter type (24 dB, comb) on their sound;
+  - **K7 = waveshaper:** amount (gain x1-x16; for bitcrush, the bits); **Shift + K7 = its type:** soft (gold), hard (red-orange), fold (teal), bitcrush (lime);
+  - **K8 = an LFO** on the grains' position (granular) or the FM amount (synth); Shift + K8, its depth;
+  - the waveshaper is saved with the project and goes along with Clear + track button and Duplicate.
+- **The track's distortion knob** (stock page) now also works on the granular and the synth, with the same curve as on a sample.
+- On a granular or synth track the unheard sample voice no longer spends Stock+.
+
+## Alpha 0.06 (2026-10-28) — experimental
+
+Two new builds: **Alpha 0.06** (marker `A0.06`) and **Alpha 0.06S** (marker `A0.06S`: no project copy, pack delete or sample copy). Everything is in the [manual](docs/MANUAL.md) ([illustrated](docs/manual/en.html)).
+
+> ⚠️ **Experimental: needs refinement.** The envelope and the line input from the FX returns have only been checked in emulation, like most of Alpha 0.04 / 0.05. Expect bugs, noises or hangs: for serious playing, stay on **Alpha 0.03** (still in the installer). **Back up the SD card.**
+
+What's new:
+- **Envelope by play mode** for the synth and the granular, on a new **Envelope page** (track menu, pad 5, rose):
+  - K1 start (the attack), K2 length, K3 slope (from the centre), K4 envelope → low-pass;
+  - the length by the track's play mode: **one-shot** = a percussive decay; **gated** = holds and releases; **loop** = holds for that time even after a short note;
+  - on the granular, with its gate on, the envelope is the VCA;
+  - saved with the project.
+- **Line input from the FX returns:**
+  - menu pad 15: the inputs (amber) → the reverb return (cream) → the delay return (peach);
+  - the gate (pad 14) now also goes through the track's **filter** (VCA and VCF).
+- The snapshot Clear + track button uses now lives in RAM: it frees project space for the envelope.
+
+## Alpha 0.05 (2026-10-28) — experimental
+
+Two new builds: **Alpha 0.05** (marker `A0.05`) and **Alpha 0.05S** (marker `A0.05S`: no project copy, pack delete or sample copy). **A new manual**, view by view, with a glossary of functions: [text](docs/MANUAL.md) or [illustrated](docs/manual/en.html).
+
+> ⚠️ **Experimental: needs refinement.** The synth and the new interface have only been checked in emulation, like most of Alpha 0.04. Expect bugs, noises or hangs: for serious playing, stay on **Alpha 0.03** (still in the installer). **Back up the SD card.**
+
+What's new:
+- **Synth** (on the master DSP), as any track's sound, up to 4 tracks:
+  - two oscillators (saw, pulse, triangle, sine) with sync, FM, SUB, noise, glide and octave;
+  - its knob page (track menu, pad 4);
+  - the track's original knobs (pitch, envelope, filters, level, sends…) act on it;
+  - saved with the project.
+- **New interface**, with fixed rules (the manual: "The colour code"):
+  - each knob page has its colour: Stock+ sky blue, Granular lilac, Synth mint, on its knobs, the track's button and its menu pad;
+  - **track menu:** the pages on pads 1-4 (stock, Stock+, Granular, Synth), only those of the track's sound; below, the toggles: 9 stereo link, 11 granular, 12 synth, 13 line input, 14 its gate. The sound only changes with the toggles. **Everything but pads 1-3 moves**;
+  - **a tap on the selected track's button leaves the menu open** until you pick something or tap again; holding it, only while held. Holding a page pad shows it until you let go, like the original's view buttons;
+  - Stock+ K3 / K8, the synced half: now **faster towards the left end** (8 bars by the centre, 1/16T at the end). Alpha 0.04 projects sound different;
+  - off = the same colour, dim (Micro Step, Setup, Advanced Setup, the arpeggiator); in Velocity with Shift, only the marked steps in red and the others as the view draws them;
+  - Synth K1 / K2 in their waveform's colour; Stock+ K6 in its own colours per filter type; the granular's gate (Shift + K8) and the synth's sync (Shift + K2) as toggles.
+
 ## Alpha 0.04 (2026-10-27) — experimental
 
 Two new builds: **Alpha 0.04** (marker `A0.04`) and **Alpha 0.04S** (marker `A0.04S`: no project copy, pack delete or sample copy). Everything is in the [manual](docs/MANUAL.md).

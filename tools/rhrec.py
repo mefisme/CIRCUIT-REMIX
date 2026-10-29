@@ -37,6 +37,16 @@ OFF = {                                    # module -> (offset, length) in the t
     "gmmode": (792, 12),                   # (RH46) "GM", a check byte, the flags (bit 0 on), the GM note of each track (35..81)
     "linein": (804, 4),                    # (RH47) "L", a check byte, the line input's track + 1, its gate (1 = the track's notes); (RH48) the two line tracks, each track + 1 | gate << 4
     "slink": (808, 4),                     # (RH49) "S", a check byte, the stereo link's leaders (bit t: t leads, t + 1 follows), 0
+    "synth": (812, 70),                    # (RH51) "Y", a check byte, 4 synth slots x 17 B: the track + 1 (0 = free), its 16 knob values (7 bits)
+}
+
+
+# (RH54) with trkcopy's photo in RAM (trkcopy ram, rhstate OFF2 «trkphoto»), its 212 B of the tail hold these (the builds before: the photo,
+# rewritten at each load; a project of theirs gives these blocks a bad mark: their defaults)
+REUSE = (328, 212)
+OFF54 = {
+    "envelope": (328, 22),                 # (RH54) "E", a check byte, the synth slots' slope (4 B), the granular slots' start, length, slope, env -> filter (4 x 4 B)
+    "waveshape": (350, 34),                # (RH55) "W", a check byte, 8 tracks x (the waveshaper's amount, its type) halfwords: Stock+ K7 of a granular / synth track
 }
 
 
@@ -45,6 +55,8 @@ def check_layout():
     for (a, n), (b2, _) in zip(used, used[1:]):
         assert a + n <= b2, f"rhrec.OFF overlaps at {b2}"
     assert used[-1][0] + used[-1][1] <= FREE_LEN
+    for a, n in OFF54.values():
+        assert REUSE[0] <= a and a + n <= REUSE[0] + REUSE[1]
 
 
 def arm_code(base):

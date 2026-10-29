@@ -6,7 +6,7 @@ How this repository is organised: the build lines, the version names, the branch
 
 | Line | Base | Contents |
 |---|---|---|
-| **Remix line** | Circuit Remix (now Alpha 0.04) | Circuit Remix + the features of this repository |
+| **Remix line** | Circuit Remix (now Alpha 0.08) | Circuit Remix + the features of this repository |
 | **Rhythm Plus** | the official firmware 2.0.1 (build 5706) | the official firmware + the same features, nothing else |
 
 - Every feature goes into **both** lines and is tested on both.
@@ -33,7 +33,7 @@ The name is stored in the firmware's version block and has at most **6 character
 - The S builds start when the first feature that writes to the SD card comes. Until then an S build would differ only in its name.
 - Files are named `rhythmplus-<name>.syx`, so that A0003 is not confused with Circuit Remix's A0.03.
 
-**Remix line:** Circuit Remix's version plus F, for example A0.04F, and its S build A04FS (the 6 characters leave no room for A0.04FS). The files are named `remix-<name>.syx`.
+**Remix line:** Circuit Remix's version plus F, for example A0.08F, and its S build A08FS (the 6 characters leave no room for A0.08FS). The files are named `remix-<name>.syx`.
 
 A published build never changes: its SHA-256 is in its manifest. A fix makes a new build.
 
@@ -43,6 +43,7 @@ A published build never changes: its SHA-256 is in its manifest. A fix makes a n
 - **Upstream sync:** fetch upstream and merge it into `main` on a computer, never with GitHub's "Sync fork" button. Files removed here stay removed unless upstream changes them; then the merge stops and asks. New upstream builds come in as new files: keep the newest base, remove the rest.
 - **Pull requests to upstream:** a new branch from `upstream/main` with only the files of that change. Never from `main`.
 - Circuit Remix builds in layers: each `tools/build_rhNN.py` adds features on the one before it, down to `build_rh01.py`. The layers of the current base stay, so a clash can be traced to the layer where it starts.
+- `tools/make_guide.py` (upstream) writes the Spanish manual to `docs/MANUAL.md`. After running it, put the English text (`MANUAL_EN.md`) there and remove the Spanish files.
 - Removed builds stay in the git history: `git show <commit>:tools/build_a003.py`.
 
 ## Development repository
